@@ -1,4 +1,4 @@
-# AMSI_Bypasses
+# AMSI Bypasses
 Simple repository with AMSI bypasses
 
 Based on the previous work of:
